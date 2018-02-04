@@ -31,6 +31,10 @@ android {
             path "CMakeLists.txt"
         }
     }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
@@ -69,6 +73,7 @@ dependencies {
     annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.ext.glide"
     implementation "fr.avianey.com.viewpagerindicator:library:$rootProject.ext.viewpagerindicator"
     implementation "com.patloew.rxlocation:rxlocation:$rootProject.ext.rxLocation"
+    implementation "com.jakewharton.threetenabp:threetenabp:$rootProject.ext.threetenabp"
 
     compileOnly "org.projectlombok:lombok:$rootProject.ext.lombok"
     annotationProcessor "org.projectlombok:lombok:$rootProject.ext.lombok"

@@ -46,6 +46,7 @@ project.ext {
     lombok = '1.16.18'
     mosby = '3.0.4'
     parceler = '1.1.9'
+    threetenabp = '1.0.5'
 
     viewpagerindicator = '2.4.1.1@aar'
 

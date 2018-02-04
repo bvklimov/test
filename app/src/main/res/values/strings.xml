@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SamplesKBV</string>
+    <string name="ErrorAirplaneMode">Your Device In Airplane Mode</string>
+    <string name="ErrorAirplaneModeAction">GO TO\nSETTINGS</string>
 </resources>
