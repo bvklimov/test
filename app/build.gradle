@@ -1,0 +1,89 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    def globalConfiguration = rootProject.ext
+    compileSdkVersion globalConfiguration["sdkVersion"]
+    defaultConfig {
+        applicationId "com.spb.kbv.sampleskbv"
+        minSdkVersion globalConfiguration["minSdkVersion"]
+        targetSdkVersion globalConfiguration["sdkVersion"]
+        versionCode globalConfiguration["projectCode"]
+        versionName globalConfiguration["projectVersion"]
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
+    implementation "com.android.support:support-compat:$rootProject.ext.androidSupport"
+    implementation "com.android.support:appcompat-v7:$rootProject.ext.androidSupport"
+    implementation "com.android.support:recyclerview-v7:$rootProject.ext.androidSupport"
+    implementation "com.android.support:cardview-v7:$rootProject.ext.androidSupport"
+    implementation "com.android.support:design:$rootProject.ext.androidSupport"
+    implementation "com.android.support:support-annotations:$rootProject.ext.androidSupport"
+    implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.androidConstraint"
+
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxAndroid"
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxJava"
+    implementation "com.jakewharton.rxbinding2:rxbinding:$rootProject.ext.rxBinding"
+    implementation "com.jakewharton.rxbinding2:rxbinding-appcompat-v7:$rootProject.ext.rxBinding"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.dagger"
+    implementation "com.google.dagger:dagger:$rootProject.ext.dagger"
+    compileOnly "javax.annotation:jsr250-api:$rootProject.ext.jsr250"
+    implementation "com.jakewharton:butterknife:$rootProject.ext.butterknife"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknife"
+    implementation "com.hannesdorfmann.mosby3:mvp:$rootProject.ext.mosby"
+    implementation "com.hannesdorfmann.mosby3:viewstate:$rootProject.ext.mosby"
+    implementation "com.hannesdorfmann.mosby3:mvp-nullobject-presenter:$rootProject.ext.mosby"
+
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okhttp"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okhttp"
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofit"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$rootProject.ext.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofit"
+    implementation "com.github.bumptech.glide:glide:$rootProject.ext.glide"
+    implementation "com.github.bumptech.glide:okhttp3-integration:$rootProject.ext.glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.ext.glide"
+    implementation "fr.avianey.com.viewpagerindicator:library:$rootProject.ext.viewpagerindicator"
+    implementation "com.patloew.rxlocation:rxlocation:$rootProject.ext.rxLocation"
+
+    compileOnly "org.projectlombok:lombok:$rootProject.ext.lombok"
+    annotationProcessor "org.projectlombok:lombok:$rootProject.ext.lombok"
+
+    implementation "org.parceler:parceler-api:$rootProject.ext.parceler"
+    annotationProcessor "org.parceler:parceler:$rootProject.ext.parceler"
+
+    implementation "com.jakewharton.timber:timber:$rootProject.ext.timber"
+    implementation "com.squareup.leakcanary:leakcanary-android:$rootProject.ext.leakCanary"
+
+    implementation "com.facebook.stetho:stetho:$rootProject.ext.stetho"
+    implementation "com.facebook.stetho:stetho-okhttp3:$rootProject.ext.stetho"
+
+    testImplementation "junit:junit:$rootProject.ext.junit"
+
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.dagger"
+    testAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.ext.dagger"
+}
